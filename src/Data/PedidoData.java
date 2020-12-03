@@ -22,9 +22,9 @@ public class PedidoData {
 		String SQL = "insert into TabelaPedido values (?,?,?,?,?)";
 		PreparedStatement ps = con.getConnect().prepareStatement(SQL);
                 ps.setInt(1, objFun4.getID_do_Cliente());
-		ps.setInt(2, objFun4.getID_do_Funcionário());
-                ps.setString(3, objFun4.getData_do_Pedido());
-                ps.setInt(4, objFun4.getID_do_Produto());
+		ps.setInt(3, objFun4.getID_do_Funcionário());
+                ps.setString(4, objFun4.getData_do_Pedido());
+                ps.setInt(2, objFun4.getID_do_Produto());
                 ps.setString(5, objFun4.getOBS());
 		
 		if(ps.executeUpdate() > 0)
@@ -91,6 +91,7 @@ public class PedidoData {
                     while(rs.next()){
                 TabelaPedido objFun4 = new TabelaPedido(); 
                 objFun4 = new TabelaPedido();
+                objFun4.setID_do_Pedido(rs.getInt("ID_do_Pedido"));
                 objFun4.setID_do_Cliente(rs.getInt("ID_do_Cliente"));
                 objFun4.setID_do_Produto(rs.getInt("ID_do_Produto"));
                 objFun4.setID_do_Funcionário(rs.getInt("ID_do_Funcionário"));
